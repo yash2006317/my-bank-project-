@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bank Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body class="dashboard-bg">
+
+<div class="container">
+
+<h2>Bank Dashboard</h2>
+
+<a href="/create_account">Create Account</a>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Account Number</th>
+<th>Balance</th>
+<th>Actions</th>
+</tr>
+
+{% for a in accounts %}
+
+<tr>
+
+<td>{{a.id}}</td>
+<td>{{a.name}}</td>
+<td>{{a.account_number}}</td>
+<td>{{a.balance}}</td>
+
+<td>
+
+<a href="/deposit/{{a.id}}">Deposit</a> |
+<a href="/withdraw/{{a.id}}">Withdraw</a> |
+<a href="/transactions/{{a.id}}">History</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bank Management</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body class="home-bg">
+
+<div class="container">
+
+<h1>Bank Accounts</h1>
+
+<a href="/create">Create Account</a>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Account Number</th>
+<th>Balance</th>
+<th>Action</th>
+</tr>
+
+{% for a in accounts %}
+
+<tr>
+
+<td>{{a.id}}</td>
+<td>{{a.name}}</td>
+<td>{{a.account_number}}</td>
+<td>{{a.balance}}</td>
+
+<td>
+<a href="/transaction/{{a.id}}">Transaction</a>
+<a href="/delete/{{a.id}}">Delete</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>
